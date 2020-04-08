@@ -9,7 +9,7 @@
             "command": "g++",
             "args": [
                 "-g",
-                "${workspaceRoot}/GetUglyNumber.cpp",
+                "${workspaceRoot}/hasPath.cpp",
                 "-std=c++11"
             ],
             "group": "build",
