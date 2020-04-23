@@ -23,9 +23,14 @@ int main() {
 }
 
 int cutRope(int number) {
-  if (number == 2) return 1;
-  if (number == 3) return 2;
-  if (number == 4) return 4;
+  if (number < 2) return 0;
 
-  return pow(3.0, number / 3) * (number % 3);
+  std::vector<int> stg(number + 1, -1);  // stg[i]代表i的最大乘积
+  stg[1] = 1;
+  for (int i = 2; i <= number; ++i) {
+    for (int j = 1; j < i; ++j) {
+      stg[i] = std::max(stg[i], std::max(j * (i - j), j * stg[i - j]));
+    }
+  }
+  return stg[number];
 }
